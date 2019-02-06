@@ -23,7 +23,7 @@ kubectl create -f deployment.yaml
 
 ### Setup horizontal POD autoscaler and Point it to our deployment 
 
-kubectl autoscale deployment k8-demo --cpu-percent=50 --min=1 --max=30
+kubectl create -f HorizontalPodAutoscaler.yaml
 
 ### Expose the deployment(k8-demo) via a Service of type Load balancer for external connectivity
 
