@@ -1,0 +1,21 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: k8-demo
+  ...
+spec:
+  maxReplicas: 30
+  metrics:
+  - resource:
+      name: cpu
+      targetAverageUtilization: 50
+    type: Resource
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: k8-demo
+status:
+  currentMetrics: []
+  currentReplicas: 3
+  desiredReplicas: 3
